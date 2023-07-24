@@ -16,7 +16,7 @@ import SearchIcon from './icons/IconSearch.vue';
 
     <nav>
       <RouterLink to="/">Jobs</RouterLink>
-      <RouterLink to="/about">Companies</RouterLink>
+      <RouterLink to="/companies">Companies</RouterLink>
       <RouterLink to="/about">How It Works</RouterLink>
     </nav>
     <div class="search">
@@ -77,6 +77,7 @@ nav a:hover {
 
 nav a.router-link-exact-active {
   color: var(--color-primary);
+  font-weight: bold;
 }
 
 nav a.router-link-exact-active:hover {
@@ -92,7 +93,7 @@ nav a:first-of-type {
 .search > input {
   padding: 0.8rem 1.2rem;
   font-size: 0.9rem;
-  background-color: #F8F8F8;
+  background-color: #ffffff;
   border: none;
   width: 400px;
 }

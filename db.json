@@ -1,0 +1,182 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "company": "Linear Company",
+      "company_id": 1,
+      "location": "Saint Petershburg, Russia",
+      "type": "Full time",
+      "salary": "10-25k",
+      "updated_at": "2023-07-23T23:50:21.817Z",
+      "number_of_vacancies": 20,
+      "number_of_vacancies_filled": 5
+    },
+    {
+      "id": 2,
+      "title": "Junior UI Designer",
+      "company": "Notion",
+      "company_id": 2,
+      "location": "Salaquoa USA",
+      "type": "Full time",
+      "salary": "20-50k",
+      "updated_at": "2023-07-24T20:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 3,
+      "title": "Senior UX/UI Designer",
+      "company": "Loom Company",
+      "company_id": 3,
+      "location": "Canada",
+      "type": "Full time",
+      "salary": "20-35k",
+      "updated_at": "2023-07-25T21:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 3
+    },
+    {
+      "id": 4,
+      "title": "Technical Engineer",
+      "company": "Evinquer",
+      "company_id": 4,
+      "location": "Flaqin Canada",
+      "type": "Full time",
+      "salary": "20-50k",
+      "updated_at": "2023-07-24T17:50:21.817Z",
+      "number_of_vacancies": 12,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 5,
+      "title": "Product Designer",
+      "company": "Truviliq Company",
+      "company_id": 5,
+      "location": "Koliq USA",
+      "type": "Temporary",
+      "salary": "50-60k",
+      "updated_at": "2023-07-24T17:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 6,
+      "title": "Copywrite",
+      "company": "Line Company",
+      "company_id": 6,
+      "location": "Paityn New York",
+      "type": "Full time",
+      "salary": "10-35k",
+      "updated_at": "2023-07-24T18:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 7,
+      "title": "Frontend Developer",
+      "company": "Cloud Company",
+      "company_id": 7,
+      "location": "Runig Gourin York",
+      "type": "Full time",
+      "salary": "35-55k",
+      "updated_at": "2023-07-24T10:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 8,
+      "title": "Software Engineer",
+      "company": "Train Line",
+      "company_id": 8,
+      "location": "Russia",
+      "type": "Full time",
+      "salary": "40-55k",
+      "updated_at": "2023-07-24T11:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 6
+    },
+    {
+      "id": 9,
+      "title": "Technical Engineer",
+      "company": "Evinquer",
+      "company_id": 4,
+      "location": "Flaqin Canada",
+      "type": "Temporary",
+      "salary": "20-50k",
+      "updated_at": "2023-07-24T17:50:21.817Z",
+      "number_of_vacancies": 12,
+      "number_of_vacancies_filled": 5
+    },
+    {
+      "id": 10,
+      "title": "Product Designer",
+      "company": "Truviliq Company",
+      "company_id": 5,
+      "location": "Koliq USA",
+      "type": "Full time",
+      "salary": "50-60k",
+      "updated_at": "2023-07-24T17:50:21.817Z",
+      "number_of_vacancies": 15,
+      "number_of_vacancies_filled": 7 
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "company": "Linear Company",
+      "location": "Saint Petershburg, Russia",
+      "number_of_jobs": 20,
+      "logo_url": "./src/assets/imgs/logo-company-1.png"
+    },
+    {
+      "id": 2,
+      "company": "Notion",
+      "location": "Salaquoa USA",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-2.png"
+    },
+    {
+      "id": 3,
+      "company": "Loom Company",
+      "location": "Canada",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-3.png"
+    },
+    {
+      "id": 4,
+      "company": "Evinquer",
+      "location": "Flaqin Canada",
+      "number_of_jobs": 12,
+      "logo_url": "./src/assets/imgs/logo-company-4.png"
+    },
+    {
+      "id": 5,
+      "company": "Truviliq Company",
+      "location": "Koliq USA",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-5.png"
+    },
+    {
+      "id": 6,
+      "company": "Line Company",
+      "location": "Paityn New York",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-6.png"
+    },
+    {
+      "id": 7,
+      "company": "Cloud Company",
+      "location": "Runig Gourin York",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-7.png"
+    },
+    {
+      "id": 8,
+      "company": "Train Line",
+      "location": "Russia",
+      "number_of_jobs": 15,
+      "logo_url": "./src/assets/imgs/logo-company-8.png"
+    }
+  ]
+}
