@@ -52,7 +52,6 @@ watchEffect(async () => {
 }
 .company {
   background-color: #ffffff;
-  border: 2px solid #f6f6f6;
   padding: 25px;
   display: flex;
   gap: 15px;
