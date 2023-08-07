@@ -6,12 +6,14 @@
       "company": "Linear Company",
       "company_id": 1,
       "location": "Saint Petershburg, Russia",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "10-25k",
+      "salary_floor": 10,
       "updated_at": "2023-07-23T23:50:21.817Z",
       "number_of_vacancies": 20,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-1.png"
+      "logo_url": "./src/assets/imgs/logo-company-1.png",
+      "experience": "Any experience"
     },
     {
       "id": 2,
@@ -19,12 +21,14 @@
       "company": "Notion",
       "company_id": 2,
       "location": "Salaquoa USA",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "20-50k",
+      "salary_floor": 20,
       "updated_at": "2023-07-24T20:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 14,
-      "logo_url": "./src/assets/imgs/logo-company-2.png"
+      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "experience": "Any experience"
     },
     {
       "id": 3,
@@ -32,12 +36,14 @@
       "company": "Loom Company",
       "company_id": 3,
       "location": "Canada",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "20-35k",
+      "salary_floor": 20,
       "updated_at": "2023-07-25T21:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 3,
-      "logo_url": "./src/assets/imgs/logo-company-3.png"
+      "logo_url": "./src/assets/imgs/logo-company-3.png",
+      "experience": "Intership"
     },
     {
       "id": 4,
@@ -45,12 +51,14 @@
       "company": "Evinquer",
       "company_id": 4,
       "location": "Flaqin Canada",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "20-50k",
+      "salary_floor": 20,
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png"
+      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "experience": "Any experience"
     },
     {
       "id": 5,
@@ -60,10 +68,12 @@
       "location": "Koliq USA",
       "type": "Temporary",
       "salary": "50-60k",
+      "salary_floor": 50,
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 1,
-      "logo_url": "./src/assets/imgs/logo-company-5.png"
+      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "experience": "Work remotely"
     },
     {
       "id": 6,
@@ -71,12 +81,14 @@
       "company": "Line Company",
       "company_id": 6,
       "location": "Paityn New York",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "10-35k",
+      "salary_floor": 10,
       "updated_at": "2023-07-24T18:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-6.png"
+      "logo_url": "./src/assets/imgs/logo-company-6.png",
+      "experience": "Any experience"
     },
     {
       "id": 7,
@@ -84,12 +96,14 @@
       "company": "Cloud Company",
       "company_id": 7,
       "location": "Runig Gourin York",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "35-55k",
+      "salary_floor": 35,
       "updated_at": "2023-07-24T10:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-7.png"
+      "logo_url": "./src/assets/imgs/logo-company-7.png",
+      "experience": "Intership"
     },
     {
       "id": 8,
@@ -97,12 +111,14 @@
       "company": "Train Line",
       "company_id": 8,
       "location": "Russia",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "40-55k",
+      "salary_floor": 40,
       "updated_at": "2023-07-24T11:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-8.png"
+      "logo_url": "./src/assets/imgs/logo-company-8.png",
+      "experience": "Intership"
     },
     {
       "id": 9,
@@ -112,10 +128,12 @@
       "location": "Flaqin Canada",
       "type": "Temporary",
       "salary": "20-50k",
+      "salary_floor": 20,
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-4.png"
+      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "experience": "Any experience"
     },
     {
       "id": 10,
@@ -123,12 +141,14 @@
       "company": "Truviliq Company",
       "company_id": 5,
       "location": "Koliq USA",
-      "type": "Full time",
+      "type": "Full-time",
       "salary": "50-60k",
+      "salary_floor": 50,
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 7,
-      "logo_url": "./src/assets/imgs/logo-company-5.png"
+      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "experience": "Any experience"
     }
   ],
   "companies": [

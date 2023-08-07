@@ -7,6 +7,13 @@ import IconSubtract from '../components/icons/IconSubtract.vue'
 
 const searchStringsNewPost = ['hour', 'hours', 'days', 'day']
 
+const initialStateFilters = {
+  type: [],
+  experience: [],
+  salary: '',
+  location: []
+}
+
 function getProgressJob(number_of_vacancies: number, number_of_vacancies_filled: number) {
   return (number_of_vacancies_filled * 100) / number_of_vacancies
 }
@@ -39,8 +46,63 @@ type Job = {
 }
 const jobs = ref<Job[]>([])
 
+const filters = ref({...initialStateFilters})
+
+function clearFilters() {
+  filters.value = {...initialStateFilters}
+}
+
+function buildFilterUrl(typeFilter: 'type' | 'experience' | 'location' | 'salary') {
+  if (typeFilter !== 'salary') {
+    return filters.value[typeFilter].reduce((previousValue, currentValue: never) => {
+      let url = ''
+      if (previousValue !== '') {
+        url += '&'
+      }
+      url += `${typeFilter}=${currentValue}`
+      return `${previousValue}${url}`
+    }, '')
+  }
+
+  if (['', 'Any'].includes(filters.value.salary)) {
+    return ''
+  }
+  const salary = filters.value.salary.split(',')[0]
+  return `salary_floor_gte=0&salary_floor_lte=${salary}`
+}
+
 watchEffect(async () => {
-  const url = `http://localhost:3000/jobs`
+  let filters_type_url = buildFilterUrl('type')
+
+  let filters_experience_url = buildFilterUrl('experience')
+  filters_experience_url = `${
+    filters_type_url !== '' && filters_experience_url !== '' ? '&' : ''
+  }${filters_experience_url}`
+
+  let filters_location_url = buildFilterUrl('location')
+  filters_location_url = `${
+    (filters_type_url !== '' || filters_experience_url !== '') && filters_location_url !== ''
+      ? '&'
+      : ''
+  }${filters_location_url}`
+
+  let filters_salary_url = buildFilterUrl('salary')
+  filters_salary_url = `${
+    (filters_type_url !== '' || filters_experience_url !== '' || filters_location_url !== '') &&
+    filters_salary_url !== ''
+      ? '&'
+      : ''
+  }${filters_salary_url}`
+
+  const pre_filter =
+    filters_type_url !== '' ||
+    filters_experience_url !== '' ||
+    filters_location_url !== '' ||
+    filters_salary_url !== ''
+      ? '?'
+      : ''
+
+  const url = `http://localhost:3000/jobs${pre_filter}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
   jobs.value = await (await fetch(url)).json()
   jobs.value = jobs.value.map((job) => ({ ...job, updated_at: getParsedDate(job.updated_at) }))
 })
@@ -51,124 +113,152 @@ watchEffect(async () => {
     <aside>
       <header>
         <h1>Filters</h1>
-        <button>Clear</button>
+        <button @click="clearFilters">Clear</button>
       </header>
       <div>
         <h2>Type of employment</h2>
         <div>
-          <input type="checkbox" id="type-full-time" />
+          <input type="checkbox" id="type-full-time" value="Full-time" v-model="filters.type" />
           <label for="type-full-time">Full-time</label>
         </div>
         <div>
-          <input type="checkbox" id="type-temporary" />
+          <input type="checkbox" id="type-temporary" value="Temporary" v-model="filters.type" />
           <label for="type-temporary">Temporary</label>
         </div>
         <div>
-          <input type="checkbox" id="type-part-time" />
+          <input type="checkbox" id="type-part-time" value="Part-time" v-model="filters.type" />
           <label for="type-part-time">Part-time</label>
         </div>
       </div>
       <div>
         <h2>Work experience</h2>
         <div>
-          <input type="checkbox" id="experience-any" />
+          <input
+            type="checkbox"
+            id="experience-any"
+            value="Any experience"
+            v-model="filters.experience"
+          />
           <label for="experience-any">Any experience</label>
         </div>
         <div>
-          <input type="checkbox" id="experience-intership" />
+          <input
+            type="checkbox"
+            id="experience-intership"
+            value="Intership"
+            v-model="filters.experience"
+          />
           <label for="experience-intership">Intership</label>
         </div>
         <div>
-          <input type="checkbox" id="experience-work-remotely" />
+          <input
+            type="checkbox"
+            id="experience-work-remotely"
+            value="Work remotely"
+            v-model="filters.experience"
+          />
           <label for="experience-work-remotely">Work remotely</label>
         </div>
       </div>
       <div>
         <h2>Salary</h2>
         <div>
-          <input type="checkbox" id="salary-any" />
+          <input type="radio" id="salary-any" value="Any" v-model="filters.salary" />
           <label for="salary-any">Any</label>
         </div>
         <div>
-          <input type="checkbox" id="salary-30000" />
-          <label for="salary-30000">> 30,000</label>
+          <input type="radio" id="salary-10000" value="10,000" v-model="filters.salary" />
+          <label for="salary-10000">&lt; 10,000</label>
         </div>
         <div>
-          <input type="checkbox" id="salary-50000" />
-          <label for="salary-50000">> 50,000</label>
+          <input type="radio" id="salary-30000" value="30,000" v-model="filters.salary" />
+          <label for="salary-30000">&lt; 30,000</label>
         </div>
         <div>
-          <input type="checkbox" id="salary-80000" />
-          <label for="salary-80000">> 80,000</label>
+          <input type="radio" id="salary-50000" value="50,000" v-model="filters.salary" />
+          <label for="salary-50000">&lt; 50,000</label>
         </div>
         <div>
-          <input type="checkbox" id="salary-100000" />
-          <label for="salary-100000">> 10,0000</label>
+          <input type="radio" id="salary-80000" value="80,000" v-model="filters.salary" />
+          <label for="salary-80000">&lt; 80,000</label>
         </div>
       </div>
       <div>
         <h2>Location</h2>
         <div>
-          <input type="checkbox" id="location-remote" />
+          <input
+            type="checkbox"
+            id="location-remote"
+            value="Remote Job"
+            v-model="filters.location"
+          />
           <label for="location-remote">Remote Job</label>
         </div>
         <div>
-          <input type="checkbox" id="location-exact" />
+          <input
+            type="checkbox"
+            id="location-exact"
+            value="Exact Location"
+            v-model="filters.location"
+          />
           <label for="location-exact">Exact Location</label>
         </div>
         <div>
-          <input type="checkbox" id="location-near-me" />
+          <input type="checkbox" id="location-near-me" value="Near me" v-model="filters.location" />
           <label for="location-near-me">Near me</label>
         </div>
       </div>
     </aside>
 
     <main>
-      <div
-        class="job"
-        v-for="{
-          id,
-          title,
-          company,
-          location,
-          logo_url,
-          type,
-          salary,
-          number_of_vacancies,
-          number_of_vacancies_filled,
-          updated_at
-        } in jobs"
-        :key="id"
-      >
-        <header>
-          <img class="logo-company" :src="logo_url" alt="logo company" />
-          <div>
-            <h1>{{ title }}</h1>
-            <div class="number-of-jobs">
-              <h2>{{ company }}</h2>
-              <div v-if="searchStringsNewPost.includes(updated_at.split(' ')[1])">New post</div>
+      <div v-if="jobs.length > 0">
+        <div
+          class="job"
+          v-for="{
+            id,
+            title,
+            company,
+            location,
+            logo_url,
+            type,
+            salary,
+            number_of_vacancies,
+            number_of_vacancies_filled,
+            updated_at
+          } in jobs"
+          :key="id"
+        >
+          <header>
+            <img class="logo-company" :src="logo_url" alt="logo company" />
+            <div>
+              <h1>{{ title }}</h1>
+              <div class="number-of-jobs">
+                <h2>{{ company }}</h2>
+                <div v-if="searchStringsNewPost.includes(updated_at.split(' ')[1])">New post</div>
+              </div>
             </div>
+          </header>
+          <div class="location">
+            <IconMapPinLine />
+            {{ location }}
           </div>
-        </header>
-        <div class="location">
-          <IconMapPinLine />
-          {{ location }}
-        </div>
-        <div class="job-info">
-          <h3><IconClock /> {{ type }}</h3>
-          <h3><IconCurrencyDollar /> {{ salary }}</h3>
-        </div>
-        <div class="job-info-progress">
-          <progress
-            :value="getProgressJob(number_of_vacancies, number_of_vacancies_filled)"
-            max="100"
-          />
-          <div>
-            <h4>{{ number_of_vacancies_filled }} of {{ number_of_vacancies }} filled</h4>
-            <h4>Update {{ updated_at }} ago</h4>
+          <div class="job-info">
+            <h3><IconClock /> {{ type }}</h3>
+            <h3><IconCurrencyDollar /> {{ salary }}</h3>
+          </div>
+          <div class="job-info-progress">
+            <progress
+              :value="getProgressJob(number_of_vacancies, number_of_vacancies_filled)"
+              max="100"
+            />
+            <div>
+              <h4>{{ number_of_vacancies_filled }} of {{ number_of_vacancies }} filled</h4>
+              <h4>Update {{ updated_at }} ago</h4>
+            </div>
           </div>
         </div>
       </div>
+      <p v-else class="alert">Nothing to show</p>
     </main>
   </div>
 
@@ -191,7 +281,7 @@ watchEffect(async () => {
   gap: 15px;
 }
 .page-home aside {
-  width: 368px;
+  width: 305px;
   background-color: #ffffff;
 }
 .page-home aside :is(h1, h2) {
@@ -240,10 +330,16 @@ watchEffect(async () => {
 .page-home aside :is(input, label) {
   cursor: pointer;
 }
-
 .page-home main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-home main > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 10px;
 }
 .page-home main .job {
@@ -258,6 +354,14 @@ watchEffect(async () => {
 }
 .page-home main .job:hover {
   background-color: #f6f6f6;
+}
+.page-home main .alert {
+  color: #565656;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .job header {
