@@ -4,6 +4,7 @@ import IconMapPinLine from '../components/icons/IconMapPinLine.vue'
 import IconClock from '../components/icons/IconClock.vue'
 import IconCurrencyDollar from '../components/icons/IconCurrencyDollar.vue'
 import IconSubtract from '../components/icons/IconSubtract.vue'
+import PaginationControl from '../components/PaginationControl.vue'
 
 const searchStringsNewPost = ['hour', 'hours', 'days', 'day']
 
@@ -46,20 +47,17 @@ type Job = {
 }
 const jobs = ref<Job[]>([])
 
-const filters = ref({...initialStateFilters})
+const pageSelected = ref(1)
+const filters = ref({ ...initialStateFilters })
 
 function clearFilters() {
-  filters.value = {...initialStateFilters}
+  filters.value = { ...initialStateFilters }
 }
 
 function buildFilterUrl(typeFilter: 'type' | 'experience' | 'location' | 'salary') {
   if (typeFilter !== 'salary') {
     return filters.value[typeFilter].reduce((previousValue, currentValue: never) => {
-      let url = ''
-      if (previousValue !== '') {
-        url += '&'
-      }
-      url += `${typeFilter}=${currentValue}`
+      let url = `&${typeFilter}=${currentValue}`
       return `${previousValue}${url}`
     }, '')
   }
@@ -73,36 +71,11 @@ function buildFilterUrl(typeFilter: 'type' | 'experience' | 'location' | 'salary
 
 watchEffect(async () => {
   let filters_type_url = buildFilterUrl('type')
-
   let filters_experience_url = buildFilterUrl('experience')
-  filters_experience_url = `${
-    filters_type_url !== '' && filters_experience_url !== '' ? '&' : ''
-  }${filters_experience_url}`
-
   let filters_location_url = buildFilterUrl('location')
-  filters_location_url = `${
-    (filters_type_url !== '' || filters_experience_url !== '') && filters_location_url !== ''
-      ? '&'
-      : ''
-  }${filters_location_url}`
-
   let filters_salary_url = buildFilterUrl('salary')
-  filters_salary_url = `${
-    (filters_type_url !== '' || filters_experience_url !== '' || filters_location_url !== '') &&
-    filters_salary_url !== ''
-      ? '&'
-      : ''
-  }${filters_salary_url}`
 
-  const pre_filter =
-    filters_type_url !== '' ||
-    filters_experience_url !== '' ||
-    filters_location_url !== '' ||
-    filters_salary_url !== ''
-      ? '?'
-      : ''
-
-  const url = `http://localhost:3000/jobs${pre_filter}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
+  const url = `http://localhost:3000/jobs?_page=${pageSelected.value}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
   jobs.value = await (await fetch(url)).json()
   jobs.value = jobs.value.map((job) => ({ ...job, updated_at: getParsedDate(job.updated_at) }))
 })
@@ -211,7 +184,7 @@ watchEffect(async () => {
     </aside>
 
     <main>
-      <div v-if="jobs.length > 0">
+      <div v-if="jobs.length > 0" class="jobs">
         <div
           class="job"
           v-for="{
@@ -259,6 +232,11 @@ watchEffect(async () => {
         </div>
       </div>
       <p v-else class="alert">Nothing to show</p>
+      <PaginationControl
+        v-if="jobs.length > 0"
+        :pageSelected="pageSelected"
+        :setPageSelected="(page: number) => pageSelected = page"
+      />
     </main>
   </div>
 
@@ -332,17 +310,19 @@ watchEffect(async () => {
 }
 .page-home main {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
 }
 
-.page-home main > div {
+.page-home main .jobs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 10px;
 }
-.page-home main .job {
+.page-home main .jobs .job {
   background-color: #ffffff;
   padding: 25px;
   display: flex;
@@ -352,7 +332,7 @@ watchEffect(async () => {
   transition: 0.4s all;
   width: 313px;
 }
-.page-home main .job:hover {
+.page-home main .jobs .job:hover {
   background-color: #f6f6f6;
 }
 .page-home main .alert {
@@ -450,6 +430,7 @@ watchEffect(async () => {
   position: relative;
   height: 241px;
   color: #ffffff;
+  margin: 50px auto;
 }
 .banner > div {
   padding: 40px 45px;
