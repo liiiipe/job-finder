@@ -5,6 +5,9 @@ import IconClock from '../components/icons/IconClock.vue'
 import IconCurrencyDollar from '../components/icons/IconCurrencyDollar.vue'
 import IconSubtract from '../components/icons/IconSubtract.vue'
 import PaginationControl from '../components/PaginationControl.vue'
+import { useSearchStore } from '@/stores/search'
+
+const searchStore = useSearchStore()
 
 const searchStringsNewPost = ['hour', 'hours', 'days', 'day']
 
@@ -49,6 +52,10 @@ const jobs = ref<Job[]>([])
 
 const pageSelected = ref(1)
 const filters = ref({ ...initialStateFilters })
+
+searchStore.performSearch = () => {
+  jobs.value = jobs.value.filter(job => job.title.includes(searchStore.search) || job.company.includes(searchStore.search))
+};
 
 function clearFilters() {
   filters.value = { ...initialStateFilters }

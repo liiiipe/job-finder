@@ -2,6 +2,10 @@
 import { RouterLink } from 'vue-router'
 import EllipseIcon from './icons/IconEllipse.vue'
 import SearchIcon from './icons/IconSearch.vue';
+import { useSearchStore } from '@/stores/search'
+
+const searchStore = useSearchStore()
+
 </script>
 
 <template>
@@ -20,8 +24,8 @@ import SearchIcon from './icons/IconSearch.vue';
       <RouterLink to="/about">How It Works</RouterLink>
     </nav>
     <div class="search">
-      <input type="search" placeholder="Search"/>
-      <button>
+      <input type="search" placeholder="Search" :value="searchStore.search" @input="event => searchStore.search = event.target.value"/>
+      <button @click="searchStore.performSearch">
         <SearchIcon />
       </button>
     </div>
