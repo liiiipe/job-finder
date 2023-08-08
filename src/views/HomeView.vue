@@ -1,25 +1,19 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import IconMapPinLine from '../components/icons/IconMapPinLine.vue'
-import IconClock from '../components/icons/IconClock.vue'
-import IconCurrencyDollar from '../components/icons/IconCurrencyDollar.vue'
+
 import IconSubtract from '../components/icons/IconSubtract.vue'
 import PaginationControl from '../components/PaginationControl.vue'
+import JobBox from '../components/JobBox.vue'
 import { useSearchStore } from '@/stores/search'
+import { type Job } from '@/types/Job'
 
 const searchStore = useSearchStore()
-
-const searchStringsNewPost = ['hour', 'hours', 'days', 'day']
 
 const initialStateFilters = {
   type: [],
   experience: [],
   salary: '',
   location: []
-}
-
-function getProgressJob(number_of_vacancies: number, number_of_vacancies_filled: number) {
-  return (number_of_vacancies_filled * 100) / number_of_vacancies
 }
 
 function getParsedDate(updated_at: string) {
@@ -35,27 +29,16 @@ function getParsedDate(updated_at: string) {
     : `${differenceMonth} month${differenceMonth > 1 ? 's' : ''}`
 }
 
-type Job = {
-  id: number
-  title: string
-  company: string
-  company_id: number
-  location: string
-  type: string
-  salary: string
-  updated_at: string
-  number_of_vacancies: number
-  number_of_vacancies_filled: number
-  logo_url: string
-}
 const jobs = ref<Job[]>([])
 
 const pageSelected = ref(1)
 const filters = ref({ ...initialStateFilters })
 
 searchStore.performSearch = () => {
-  jobs.value = jobs.value.filter(job => job.title.includes(searchStore.search) || job.company.includes(searchStore.search))
-};
+  jobs.value = jobs.value.filter(
+    (job) => job.title.includes(searchStore.search) || job.company.includes(searchStore.search)
+  )
+}
 
 function clearFilters() {
   filters.value = { ...initialStateFilters }
@@ -192,51 +175,7 @@ watchEffect(async () => {
 
     <main>
       <div v-if="jobs.length > 0" class="jobs">
-        <div
-          class="job"
-          v-for="{
-            id,
-            title,
-            company,
-            location,
-            logo_url,
-            type,
-            salary,
-            number_of_vacancies,
-            number_of_vacancies_filled,
-            updated_at
-          } in jobs"
-          :key="id"
-        >
-          <header>
-            <img class="logo-company" :src="logo_url" alt="logo company" />
-            <div>
-              <h1>{{ title }}</h1>
-              <div class="number-of-jobs">
-                <h2>{{ company }}</h2>
-                <div v-if="searchStringsNewPost.includes(updated_at.split(' ')[1])">New post</div>
-              </div>
-            </div>
-          </header>
-          <div class="location">
-            <IconMapPinLine />
-            {{ location }}
-          </div>
-          <div class="job-info">
-            <h3><IconClock /> {{ type }}</h3>
-            <h3><IconCurrencyDollar /> {{ salary }}</h3>
-          </div>
-          <div class="job-info-progress">
-            <progress
-              :value="getProgressJob(number_of_vacancies, number_of_vacancies_filled)"
-              max="100"
-            />
-            <div>
-              <h4>{{ number_of_vacancies_filled }} of {{ number_of_vacancies }} filled</h4>
-              <h4>Update {{ updated_at }} ago</h4>
-            </div>
-          </div>
-        </div>
+        <JobBox v-for="job in jobs" :key="job.id" :job="job" />
       </div>
       <p v-else class="alert">Nothing to show</p>
       <PaginationControl

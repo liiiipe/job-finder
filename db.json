@@ -12,7 +12,7 @@
       "updated_at": "2023-07-23T23:50:21.817Z",
       "number_of_vacancies": 20,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-1.png",
+      "logo_url": "/src/assets/imgs/logo-company-1.png",
       "experience": "Any experience"
     },
     {
@@ -27,7 +27,7 @@
       "updated_at": "2023-07-24T20:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 14,
-      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "logo_url": "/src/assets/imgs/logo-company-2.png",
       "experience": "Any experience"
     },
     {
@@ -42,7 +42,7 @@
       "updated_at": "2023-07-25T21:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 3,
-      "logo_url": "./src/assets/imgs/logo-company-3.png",
+      "logo_url": "/src/assets/imgs/logo-company-3.png",
       "experience": "Intership"
     },
     {
@@ -57,7 +57,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -72,7 +72,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 1,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Work remotely"
     },
     {
@@ -87,7 +87,7 @@
       "updated_at": "2023-07-24T18:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-6.png",
+      "logo_url": "/src/assets/imgs/logo-company-6.png",
       "experience": "Any experience"
     },
     {
@@ -102,7 +102,7 @@
       "updated_at": "2023-07-24T10:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-7.png",
+      "logo_url": "/src/assets/imgs/logo-company-7.png",
       "experience": "Intership"
     },
     {
@@ -117,7 +117,7 @@
       "updated_at": "2023-07-24T11:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-8.png",
+      "logo_url": "/src/assets/imgs/logo-company-8.png",
       "experience": "Intership"
     },
     {
@@ -132,7 +132,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -147,7 +147,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 7,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Any experience"
     },
     {
@@ -162,7 +162,7 @@
       "updated_at": "2023-07-23T23:50:21.817Z",
       "number_of_vacancies": 20,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "logo_url": "/src/assets/imgs/logo-company-2.png",
       "experience": "Any experience"
     },
     {
@@ -177,7 +177,7 @@
       "updated_at": "2023-07-24T20:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 14,
-      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "logo_url": "/src/assets/imgs/logo-company-2.png",
       "experience": "Intership"
     },
     {
@@ -192,7 +192,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -207,7 +207,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -222,7 +222,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 1,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Work remotely"
     },
     {
@@ -237,7 +237,7 @@
       "updated_at": "2023-07-24T10:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-7.png",
+      "logo_url": "/src/assets/imgs/logo-company-7.png",
       "experience": "Intership"
     },
     {
@@ -252,7 +252,7 @@
       "updated_at": "2023-07-24T18:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-6.png",
+      "logo_url": "/src/assets/imgs/logo-company-6.png",
       "experience": "Any experience"
     },
     {
@@ -267,7 +267,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -282,7 +282,7 @@
       "updated_at": "2023-07-24T11:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-8.png",
+      "logo_url": "/src/assets/imgs/logo-company-8.png",
       "experience": "Intership"
     },
     {
@@ -297,7 +297,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 19,
       "number_of_vacancies_filled": 7,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Any experience"
     },
     {
@@ -312,7 +312,7 @@
       "updated_at": "2023-07-23T23:50:21.817Z",
       "number_of_vacancies": 10,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "logo_url": "/src/assets/imgs/logo-company-2.png",
       "experience": "Any experience"
     },
     {
@@ -327,7 +327,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 7,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Any experience"
     },
     {
@@ -342,7 +342,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -357,7 +357,7 @@
       "updated_at": "2023-07-24T20:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 14,
-      "logo_url": "./src/assets/imgs/logo-company-2.png",
+      "logo_url": "/src/assets/imgs/logo-company-2.png",
       "experience": "Intership"
     },
     {
@@ -372,7 +372,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 10,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     },
     {
@@ -387,7 +387,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 1,
-      "logo_url": "./src/assets/imgs/logo-company-5.png",
+      "logo_url": "/src/assets/imgs/logo-company-5.png",
       "experience": "Work remotely"
     },
     {
@@ -402,7 +402,7 @@
       "updated_at": "2023-07-24T18:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-6.png",
+      "logo_url": "/src/assets/imgs/logo-company-6.png",
       "experience": "Any experience"
     },
     {
@@ -417,7 +417,7 @@
       "updated_at": "2023-07-24T10:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-7.png",
+      "logo_url": "/src/assets/imgs/logo-company-7.png",
       "experience": "Intership"
     },
     {
@@ -432,7 +432,7 @@
       "updated_at": "2023-07-24T11:50:21.817Z",
       "number_of_vacancies": 15,
       "number_of_vacancies_filled": 6,
-      "logo_url": "./src/assets/imgs/logo-company-8.png",
+      "logo_url": "/src/assets/imgs/logo-company-8.png",
       "experience": "Intership"
     },
     {
@@ -447,7 +447,7 @@
       "updated_at": "2023-07-24T17:50:21.817Z",
       "number_of_vacancies": 12,
       "number_of_vacancies_filled": 5,
-      "logo_url": "./src/assets/imgs/logo-company-4.png",
+      "logo_url": "/src/assets/imgs/logo-company-4.png",
       "experience": "Any experience"
     }
   ],
@@ -457,56 +457,56 @@
       "company": "Linear Company",
       "location": "Saint Petershburg, Russia",
       "number_of_jobs": 20,
-      "logo_url": "./src/assets/imgs/logo-company-1.png"
+      "logo_url": "/src/assets/imgs/logo-company-1.png"
     },
     {
       "id": 2,
       "company": "Notion",
       "location": "Salaquoa USA",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-2.png"
+      "logo_url": "/src/assets/imgs/logo-company-2.png"
     },
     {
       "id": 3,
       "company": "Loom Company",
       "location": "Canada",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-3.png"
+      "logo_url": "/src/assets/imgs/logo-company-3.png"
     },
     {
       "id": 4,
       "company": "Evinquer",
       "location": "Flaqin Canada",
       "number_of_jobs": 12,
-      "logo_url": "./src/assets/imgs/logo-company-4.png"
+      "logo_url": "/src/assets/imgs/logo-company-4.png"
     },
     {
       "id": 5,
       "company": "Truviliq Company",
       "location": "Koliq USA",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-5.png"
+      "logo_url": "/src/assets/imgs/logo-company-5.png"
     },
     {
       "id": 6,
       "company": "Line Company",
       "location": "Paityn New York",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-6.png"
+      "logo_url": "/src/assets/imgs/logo-company-6.png"
     },
     {
       "id": 7,
       "company": "Cloud Company",
       "location": "Runig Gourin York",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-7.png"
+      "logo_url": "/src/assets/imgs/logo-company-7.png"
     },
     {
       "id": 8,
       "company": "Train Line",
       "location": "Russia",
       "number_of_jobs": 15,
-      "logo_url": "./src/assets/imgs/logo-company-8.png"
+      "logo_url": "/src/assets/imgs/logo-company-8.png"
     }
   ]
 }

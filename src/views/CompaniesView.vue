@@ -25,20 +25,22 @@ watchEffect(async () => {
       v-for="{ id, company, location, number_of_jobs, logo_url } in companies"
       :key="id"
     >
-      <header>
-        <img class="logo-company" :src="logo_url" alt="logo company" />
-        <div>
-          <h1>{{ company }}</h1>
-          <div class="number-of-jobs">
-            <IconJob />
-            <h2>{{ number_of_jobs }} open jobs</h2>
+      <router-link :to="'/companies/' + id">
+        <header>
+          <img class="logo-company" :src="logo_url" alt="logo company" />
+          <div>
+            <h1>{{ company }}</h1>
+            <div class="number-of-jobs">
+              <IconJob />
+              <h2>{{ number_of_jobs }} open jobs</h2>
+            </div>
           </div>
+        </header>
+        <div class="location">
+          <IconMapPinLine />
+          {{ location }}
         </div>
-      </header>
-      <div class="location">
-        <IconMapPinLine />
-        {{ location }}
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -84,7 +86,8 @@ watchEffect(async () => {
   color: #565656;
 }
 
-.company .location, .company header .number-of-jobs {
+.company .location,
+.company header .number-of-jobs {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -93,5 +96,4 @@ watchEffect(async () => {
 .company .location {
   font-style: italic;
 }
-
 </style>
