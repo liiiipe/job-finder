@@ -15,9 +15,7 @@ function getProgressJob(number_of_vacancies: number, number_of_vacancies_filled:
 </script>
 
 <template>
-  <div
-    class="job"
-  >
+  <router-link :to="'/job/' + job.id" class="job">
     <header>
       <img class="logo-company" :src="job.logo_url" alt="logo company" />
       <div>
@@ -46,20 +44,19 @@ function getProgressJob(number_of_vacancies: number, number_of_vacancies_filled:
         <h4>Update {{ job.updated_at }} ago</h4>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style>
-
 .job {
   background-color: #ffffff;
   padding: 25px;
   display: flex;
   gap: 15px;
   flex-direction: column;
-  cursor: pointer;
   transition: 0.4s all;
   width: 313px;
+  text-decoration: none;
 }
 .job:hover {
   background-color: #f6f6f6;
