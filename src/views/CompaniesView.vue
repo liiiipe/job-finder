@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { useSearchStore } from '@/stores/search'
 
 import IconMapPinLine from '../components/icons/IconMapPinLine.vue'
 import IconJob from '../components/icons/IconJob.vue'
-
-const searchStore = useSearchStore()
 
 type Company = {
   id: number
@@ -17,11 +14,6 @@ type Company = {
 
 const companies = ref<Company[]>([])
 
-searchStore.performSearch = () => {
-  companies.value = companies.value.filter((company) =>
-    company.company.includes(searchStore.search)
-  )
-}
 watchEffect(async () => {
   const url = `http://localhost:3000/companies`
   companies.value = await (await fetch(url)).json()

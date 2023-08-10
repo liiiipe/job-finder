@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import EllipseIcon from './icons/IconEllipse.vue'
 import SearchIcon from './icons/IconSearch.vue';
 import { useSearchStore } from '@/stores/search'
 
 const searchStore = useSearchStore()
-
+const router = useRouter()
+function submitSearch(e: Event) {
+  e.preventDefault()
+  if (searchStore.search !== '') {
+    router.push("/")
+  }
+}
 </script>
 
 <template>
@@ -23,12 +29,12 @@ const searchStore = useSearchStore()
       <RouterLink to="/companies">Companies</RouterLink>
       <RouterLink to="/about">How It Works</RouterLink>
     </nav>
-    <div class="search">
+    <form class="search" @submit="submitSearch">
       <input type="search" placeholder="Search" :value="searchStore.search" @input="event => searchStore.search = event.target.value"/>
-      <button @click="searchStore.performSearch">
+      <button type="submit">
         <SearchIcon />
       </button>
-    </div>
+  </form>
   </header>
 </template>
 
@@ -104,7 +110,7 @@ nav a:first-of-type {
 }
 
 .search button {
-  padding: 0 0.7rem;
+  padding: 0.7rem;
   border: none;
   background-color: var(--color-primary);
   transition: 0.2s;
@@ -116,7 +122,6 @@ nav a:first-of-type {
 }
 .search button:active {
   opacity: 0.6;
-
 }
 
 @media (min-width: 1024px) {

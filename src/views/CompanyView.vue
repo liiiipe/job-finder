@@ -2,12 +2,9 @@
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useSearchStore } from '@/stores/search'
 import { type Job } from '@/types/Job'
 import IconMapPinLine from '../components/icons/IconMapPinLine.vue'
 import JobBox from '../components/JobBox.vue'
-
-const searchStore = useSearchStore()
 
 const route = useRoute()
 
@@ -33,10 +30,6 @@ function getParsedDate(updated_at: string) {
     : differenceDays < 31
     ? `${differenceDays} day${differenceDays > 1 ? 's' : ''}`
     : `${differenceMonth} month${differenceMonth > 1 ? 's' : ''}`
-}
-
-searchStore.performSearch = () => {
-  jobs.value = jobs.value.filter((job) => job.title.includes(searchStore.search))
 }
 
 watchEffect(async () => {

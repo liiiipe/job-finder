@@ -34,9 +34,11 @@ const jobs = ref<Job[]>([])
 const pageSelected = ref(1)
 const filters = ref({ ...initialStateFilters })
 
-searchStore.performSearch = () => {
+function filterJobs() {
   jobs.value = jobs.value.filter(
-    (job) => job.title.includes(searchStore.search) || job.company.includes(searchStore.search)
+    (job) =>
+      job.title.toLocaleLowerCase().includes(searchStore.search.toLocaleLowerCase()) ||
+      job.company.toLocaleLowerCase().includes(searchStore.search.toLocaleLowerCase())
   )
 }
 
@@ -68,6 +70,15 @@ watchEffect(async () => {
   const url = `http://localhost:3000/jobs?_page=${pageSelected.value}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
   jobs.value = await (await fetch(url)).json()
   jobs.value = jobs.value.map((job) => ({ ...job, updated_at: getParsedDate(job.updated_at) }))
+})
+
+watchEffect(() => {
+  if (searchStore.search !== '') {
+    filterJobs()
+  }
+  else {
+    clearFilters()
+  }
 })
 </script>
 
