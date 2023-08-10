@@ -10,13 +10,13 @@ const searchStore = useSearchStore()
 
 <template>
   <header>
-    <div class="logo">
+    <RouterLink to="/" class="logo">
       <div>
         <EllipseIcon color="#58A3F7" />
         <EllipseIcon color="#2789F5" />
       </div>
       <h1>Job Search</h1>
-    </div>
+    </RouterLink>
 
     <nav>
       <RouterLink to="/">Jobs</RouterLink>
@@ -44,6 +44,7 @@ header {
   display: flex;
   gap: 25px;
   align-items: center;
+  text-decoration: none;
 }
 .logo > div {
   display: flex;

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
+import { useSearchStore } from '@/stores/search'
 
 import IconSubtract from '../components/icons/IconSubtract.vue'
 import PaginationControl from '../components/PaginationControl.vue'
 import JobBox from '../components/JobBox.vue'
-import { useSearchStore } from '@/stores/search'
 import { type Job } from '@/types/Job'
 
 const searchStore = useSearchStore()

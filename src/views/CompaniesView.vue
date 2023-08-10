@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
+import { useSearchStore } from '@/stores/search'
+
 import IconMapPinLine from '../components/icons/IconMapPinLine.vue'
 import IconJob from '../components/icons/IconJob.vue'
+
+const searchStore = useSearchStore()
 
 type Company = {
   id: number
@@ -10,8 +14,14 @@ type Company = {
   number_of_jobs: number
   logo_url: string
 }
+
 const companies = ref<Company[]>([])
 
+searchStore.performSearch = () => {
+  companies.value = companies.value.filter((company) =>
+    company.company.includes(searchStore.search)
+  )
+}
 watchEffect(async () => {
   const url = `http://localhost:3000/companies`
   companies.value = await (await fetch(url)).json()
@@ -20,28 +30,27 @@ watchEffect(async () => {
 
 <template>
   <div class="page-companies">
-    <div
+    <router-link
+      :to="'/companies/' + id"
       class="company"
       v-for="{ id, company, location, number_of_jobs, logo_url } in companies"
       :key="id"
     >
-      <router-link :to="'/companies/' + id">
-        <header>
-          <img class="logo-company" :src="logo_url" alt="logo company" />
-          <div>
-            <h1>{{ company }}</h1>
-            <div class="number-of-jobs">
-              <IconJob />
-              <h2>{{ number_of_jobs }} open jobs</h2>
-            </div>
+      <header>
+        <img class="logo-company" :src="logo_url" alt="logo company" />
+        <div>
+          <h1>{{ company }}</h1>
+          <div class="number-of-jobs">
+            <IconJob />
+            <h2>{{ number_of_jobs }} open jobs</h2>
           </div>
-        </header>
-        <div class="location">
-          <IconMapPinLine />
-          {{ location }}
         </div>
-      </router-link>
-    </div>
+      </header>
+      <div class="location">
+        <IconMapPinLine />
+        {{ location }}
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -60,11 +69,13 @@ watchEffect(async () => {
   flex-direction: column;
   cursor: pointer;
   transition: 0.4s all;
+  text-decoration: none;
   width: 388px;
 }
 .company:hover {
   background-color: #f6f6f6;
 }
+
 .company header {
   display: flex;
   gap: 15px;
