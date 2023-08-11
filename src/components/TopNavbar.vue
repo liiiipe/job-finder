@@ -30,7 +30,8 @@ function submitSearch(e: Event) {
       <RouterLink to="/about">How It Works</RouterLink>
     </nav>
     <form class="search" @submit="submitSearch">
-      <input type="search" placeholder="Search" :value="searchStore.search" @input="event => searchStore.search = event.target.value"/>
+      <!-- @vue-ignore -->
+      <input type="search" placeholder="Search" :value="searchStore.search" @input="event => searchStore.search = event?.target?.value"/>
       <button type="submit">
         <SearchIcon />
       </button>
