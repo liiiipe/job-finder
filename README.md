@@ -6,7 +6,7 @@ App Vue que lista vagas de emprego.
 
 ## Sobre o projeto
 
-Projeto Vue gerado com Vite, feito com Typescript.
+Projeto Vue gerado com Vite, feito com Typescript, e que utiliza o json-server como fake api.
 Baseado nesse [template](https://www.uplabs.com/posts/job-search-dashboard-ui-design-5f85a886-b98d-4fe1-827d-523abf1fe965).
 
 ## Project Setup
