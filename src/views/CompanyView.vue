@@ -34,13 +34,13 @@ function getParsedDate(updated_at: string) {
 
 watchEffect(async () => {
   company.value = await (
-    await fetch(`http://localhost:3000/companies?id=${route.params.id}`)
+    await fetch(`https://job-finder-json-server.vercel.app/companies?id=${route.params.id}`)
   ).json()
   // @ts-ignore
   company.value = company.value[0]
 
   jobs.value = await (
-    await fetch(`http://localhost:3000/jobs?company_id=${route.params.id}`)
+    await fetch(`https://job-finder-json-server.vercel.app/jobs?company_id=${route.params.id}`)
   ).json()
   jobs.value = jobs.value.map((job) => ({ ...job, updated_at: getParsedDate(job.updated_at) }))
 })

@@ -67,7 +67,7 @@ watchEffect(async () => {
   let filters_location_url = buildFilterUrl('location')
   let filters_salary_url = buildFilterUrl('salary')
 
-  const url = `http://localhost:3000/jobs?_page=${pageSelected.value}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
+  const url = `https://job-finder-json-server.vercel.app/jobs?_page=${pageSelected.value}${filters_type_url}${filters_experience_url}${filters_location_url}${filters_salary_url}`
   jobs.value = await (await fetch(url)).json()
   jobs.value = jobs.value.map((job) => ({ ...job, updated_at: getParsedDate(job.updated_at) }))
 })

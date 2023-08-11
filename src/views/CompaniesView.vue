@@ -15,7 +15,7 @@ type Company = {
 const companies = ref<Company[]>([])
 
 watchEffect(async () => {
-  const url = `http://localhost:3000/companies`
+  const url = `https://job-finder-json-server.vercel.app/companies`
   companies.value = await (await fetch(url)).json()
 })
 </script>

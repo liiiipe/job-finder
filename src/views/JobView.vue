@@ -11,7 +11,7 @@ const route = useRoute()
 const job = ref<Job>()
 
 watchEffect(async () => {
-  job.value = await (await fetch(`http://localhost:3000/jobs?id=${route.params.id}`)).json()
+  job.value = await (await fetch(`https://job-finder-json-server.vercel.app/jobs?id=${route.params.id}`)).json()
   // @ts-ignore
   job.value = job.value[0]
 })
